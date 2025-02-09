@@ -1,0 +1,23 @@
+{% extends "blog/base.html"%}
+    {% block content%}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1 class="h1 text-center">  Détails sur les articles </h1>
+    {% for post in posts %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.contener }}</p>
+    <p>{{ post.categorie }}</p>
+    <p>{{ post.frequence }}</p>
+    <small>Publié le {{ post.created_at }}</small>
+    <br>
+    <br>
+    <!--<a href="{% url 'post_list' %}">RETOUR A LA LIST DES POST</a> -->
+    {% endfor %}
+</body>
+</html>
+{% endblock content %}
