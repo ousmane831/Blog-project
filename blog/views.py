@@ -3,9 +3,17 @@ from .models import POST
 from .forms import PostForm
 
 # Vue pour lister les articles
-def post_list(request):
+def index(request):
     posts = POST.objects.all().order_by('-created_at')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/index.html', {'posts': posts})
+
+def blog(request):
+    posts = POST.objects.all().order_by('-created_at')
+    return render(request , 'blog/blog.html' , {'posts': posts})
+
+def post_list(request):
+    return render(request , 'blog/post_list.html')
+
 
 # Vue pour afficher un article en détail
 
